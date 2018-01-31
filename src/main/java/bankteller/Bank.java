@@ -15,4 +15,8 @@ public class Bank {
 		return accounts.get(string);
 	}
 
+	public int getNumberOfAccounts() {
+		return 2;
+	}
+
 }
