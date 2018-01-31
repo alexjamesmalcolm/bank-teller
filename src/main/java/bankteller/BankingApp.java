@@ -13,30 +13,45 @@ public class BankingApp {
 		myBank.addAccount(account1);
 		myBank.addAccount(account2);
 
-		System.out.println("Here are your accounts at our bank:");
-		myBank.displayAccounts();
-
-		displayChoices();
 		Scanner input = new Scanner(System.in);
-		int choice = input.nextInt();
-		if (choice == 1) {
-			String accountNum = askAccount(myBank, input);
-			askToDeposit(myBank, input, accountNum);
-			displayAccountBalance(myBank, accountNum);
-		} else if (choice == 2) {
-			String accountNum = askAccount(myBank, input);
-			askToWithdraw(myBank, input, accountNum);
-			displayAccountBalance(myBank, accountNum);
-		} else if (choice == 3) {
-			String accountNum = askAccount(myBank, input);
-			displayAccountBalance(myBank, accountNum);
-		} else if (choice == 4) {
-			String accountNum = askAccount(myBank, input);
-			myBank.closeAccount(accountNum);
-		} else if (choice == 5) {
-			System.exit(0);
+		while (true) {
+			System.out.println("Here are your accounts at our bank:");
+			myBank.displayAccounts();
+
+			displayChoices();
+			int choice = input.nextInt();
+			if (choice == 1) {
+				deposit(myBank, input);
+			} else if (choice == 2) {
+				withdraw(myBank, input);
+			} else if (choice == 3) {
+				String accountNum = askAccount(myBank, input);
+				displayAccountBalance(myBank, accountNum);
+			} else if (choice == 4) {
+				closeAccount(myBank, input);
+			} else if (choice == 5) {
+				System.exit(0);
+				break;
+			}
 		}
 		input.close();
+	}
+
+	private static void closeAccount(Bank bank, Scanner input) {
+		String accountNum = askAccount(bank, input);
+		bank.closeAccount(accountNum);
+	}
+
+	private static void deposit(Bank bank, Scanner input) {
+		String accountNum = askAccount(bank, input);
+		askToDeposit(bank, input, accountNum);
+		displayAccountBalance(bank, accountNum);
+	}
+
+	private static void withdraw(Bank bank, Scanner input) {
+		String accountNum = askAccount(bank, input);
+		askToWithdraw(bank, input, accountNum);
+		displayAccountBalance(bank, accountNum);
 	}
 
 	private static void askToDeposit(Bank myBank, Scanner input, String accountNum) {
