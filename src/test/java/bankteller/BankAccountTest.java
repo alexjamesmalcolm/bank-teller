@@ -54,7 +54,7 @@ public class BankAccountTest {
 		double check = underTest.getBalance();
 		Assert.assertEquals(10.0, check, 0.001);
 	}
-	
+
 	@Test
 	public void shouldToString1() {
 		BankAccount underTest = new BankAccount("1111", "Checking", 1000.0);
@@ -62,7 +62,7 @@ public class BankAccountTest {
 		String expected = "BankAccount {accountNum: 1111, type: Checking, balance: 1000.0}";
 		Assert.assertEquals(expected, check);
 	}
-	
+
 	@Test
 	public void shouldToString2() {
 		BankAccount underTest = new BankAccount("2222", "Savings", 2500.0);
@@ -70,11 +70,19 @@ public class BankAccountTest {
 		String expected = "BankAccount {accountNum: 2222, type: Savings, balance: 2500.0}";
 		Assert.assertEquals(expected, check);
 	}
-	
+
 	@Test
 	public void shouldNotWithdrawNegative() {
-		BankAccount underTest = new BankAccount("","",20.0);
+		BankAccount underTest = new BankAccount("", "", 20.0);
 		underTest.withdraw(-10.0);
+		double balance = underTest.getBalance();
+		Assert.assertEquals(20.0, balance, 0.001);
+	}
+
+	@Test
+	public void shouldNotDepositNegative() {
+		BankAccount underTest = new BankAccount("", "", 20.0);
+		underTest.deposit(-10.0);
 		double balance = underTest.getBalance();
 		Assert.assertEquals(20.0, balance, 0.001);
 	}
