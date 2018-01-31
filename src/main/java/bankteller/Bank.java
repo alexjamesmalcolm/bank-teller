@@ -3,7 +3,6 @@ package bankteller;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.DoubleStream;
 
 public class Bank {
 	// Map<String, Double> menu = new HashMap<String, Double>();
@@ -13,11 +12,11 @@ public class Bank {
 		accounts.put(account.getAccountNum(), account);
 	}
 
-	public BankAccount getAccount(String string) {
-		return accounts.get(string);
+	public BankAccount getAccount(String accountNum) {
+		return accounts.get(accountNum);
 	}
 
-	public int getNumberOfAccounts() {
+	public int getNumOfAccounts() {
 		return accounts.size();
 	}
 
@@ -27,6 +26,10 @@ public class Bank {
 
 	public Collection<BankAccount> getAccounts() {
 		return accounts.values();
+	}
+
+	public void closeAccount(String accountNum) {
+		accounts.remove(accountNum);
 	}
 
 }

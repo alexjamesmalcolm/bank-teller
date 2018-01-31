@@ -9,6 +9,16 @@ import org.junit.Assert;
 public class BankTest {
 
 	@Test
+	public void shouldGet3Accounts() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 100.0));
+		underTest.addAccount(new BankAccount("0002", "", 20.0));
+		underTest.addAccount(new BankAccount("0003", "", 1000.0));
+		Collection<BankAccount> accounts = underTest.getAccounts();
+		Assert.assertEquals(3, accounts.size());
+	}
+
+	@Test
 	public void shouldGetBankAccount() {
 		BankAccount account = new BankAccount("0001", "checking", 100.0);
 		Bank underTest = new Bank();
@@ -22,7 +32,7 @@ public class BankTest {
 		Bank underTest = new Bank();
 		underTest.addAccount(new BankAccount("0001", "", 0.0));
 		underTest.addAccount(new BankAccount("0002", "", 0.0));
-		int check = underTest.getNumberOfAccounts();
+		int check = underTest.getNumOfAccounts();
 		Assert.assertEquals(2, check);
 	}
 
@@ -32,7 +42,7 @@ public class BankTest {
 		underTest.addAccount(new BankAccount("0001", "", 0.0));
 		underTest.addAccount(new BankAccount("0002", "", 0.0));
 		underTest.addAccount(new BankAccount("0003", "", 0.0));
-		int check = underTest.getNumberOfAccounts();
+		int check = underTest.getNumOfAccounts();
 		Assert.assertEquals(3, check);
 	}
 
@@ -47,16 +57,6 @@ public class BankTest {
 	}
 
 	@Test
-	public void shouldGet3Accounts() {
-		Bank underTest = new Bank();
-		underTest.addAccount(new BankAccount("0001", "", 100.0));
-		underTest.addAccount(new BankAccount("0002", "", 20.0));
-		underTest.addAccount(new BankAccount("0003", "", 1000.0));
-		Collection<BankAccount> accounts = underTest.getAccounts();
-		Assert.assertEquals(3, accounts.size());
-	}
-
-	@Test
 	public void shouldGetPortfolioTotal2260() {
 		Bank underTest = new Bank();
 		underTest.addAccount(new BankAccount("0001", "", 200.0));
@@ -64,5 +64,16 @@ public class BankTest {
 		underTest.addAccount(new BankAccount("0003", "", 2000.0));
 		double check = underTest.totalPortfolio();
 		Assert.assertEquals(2260.0, check, 0.001);
+	}
+
+	@Test
+	public void shouldCloseAccount() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 200.0));
+		underTest.addAccount(new BankAccount("0002", "", 60.0));
+		underTest.addAccount(new BankAccount("0003", "", 2000.0));
+		underTest.closeAccount("0001");
+		int check = underTest.getNumOfAccounts();
+		Assert.assertEquals(2, check);
 	}
 }
