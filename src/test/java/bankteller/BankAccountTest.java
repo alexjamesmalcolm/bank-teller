@@ -17,4 +17,11 @@ public class BankAccountTest {
 		String check = underTest.getType();
 		Assert.assertEquals("checking", check);
 	}
+	
+	@Test
+	public void shouldHaveBalance() {
+		BankAccount underTest = new BankAccount("", "", 100.0);
+		double check = underTest.getBalance();
+		Assert.assertEquals(100.0, check, 0.001);
+	}
 }

@@ -15,4 +15,9 @@ public class BankAccount {
 		return "checking";
 	}
 
+	public double getBalance() {
+		// TODO Auto-generated method stub
+		return 100.0;
+	}
+
 }
