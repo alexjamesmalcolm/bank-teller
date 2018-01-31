@@ -13,7 +13,7 @@ public class BankAccount {
 	}
 
 	public String getAccountNum() {
-		return "0001";
+		return accountNum;
 	}
 
 	public String getType() {

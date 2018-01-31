@@ -5,7 +5,7 @@ import org.junit.Assert;
 
 public class BankAccountTest {
 	@Test
-	public void shouldHaveAccountNum() {
+	public void shouldHaveAccountNum0001() {
 		BankAccount underTest = new BankAccount("0001", "", 0.0);
 		String check = underTest.getAccountNum();
 		Assert.assertEquals("0001", check);
@@ -31,5 +31,12 @@ public class BankAccountTest {
 		underTest.deposit(10.0);
 		double check = underTest.getBalance();
 		Assert.assertEquals(20.0, check, 0.001);
+	}
+	
+	@Test
+	public void shouldHaveAccountNum0002() {
+		BankAccount underTest = new BankAccount("0002", "", 0.0);
+		String check = underTest.getAccountNum();
+		Assert.assertEquals("0002", check);
 	}
 }
