@@ -32,4 +32,8 @@ public class Bank {
 		accounts.remove(accountNum);
 	}
 
+	public void displayAccounts() {
+		accounts.forEach((accountNum, account) -> System.out.println(account));
+	}
+
 }
