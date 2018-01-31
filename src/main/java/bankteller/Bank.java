@@ -35,4 +35,9 @@ public class Bank {
 		accounts.forEach((accountNum, account) -> System.out.println(account));
 	}
 
+	public void deposit(String accountNum, double balance) {
+		BankAccount account = accounts.get(accountNum);
+		account.deposit(balance);
+	}
+
 }
