@@ -76,6 +76,5 @@ public class BankTest {
 		double check = underTest.totalPortfolio();
 		Assert.assertEquals(2260.0, check, 0.001);
 	}
-	
-	
+
 }
