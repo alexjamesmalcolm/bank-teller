@@ -40,4 +40,9 @@ public class Bank {
 		account.deposit(balance);
 	}
 
+	public void withdraw(String accountNum, double balance) {
+		BankAccount account = accounts.get(accountNum);
+		account.withdraw(balance);
+	}
+
 }

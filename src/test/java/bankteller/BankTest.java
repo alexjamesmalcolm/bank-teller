@@ -76,7 +76,7 @@ public class BankTest {
 		double check = underTest.totalPortfolio();
 		Assert.assertEquals(2260.0, check, 0.001);
 	}
-	
+
 	@Test
 	public void shouldDeposit10() {
 		Bank underTest = new Bank();
@@ -86,4 +86,12 @@ public class BankTest {
 		Assert.assertEquals(210.0, balance, 0.001);
 	}
 
+	@Test
+	public void shouldWithdraw10() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 200.0));
+		underTest.withdraw("0001", 10.0);
+		double balance = underTest.getAccount("0001").getBalance();
+		Assert.assertEquals(190.0, balance, 0.001);
+	}
 }
