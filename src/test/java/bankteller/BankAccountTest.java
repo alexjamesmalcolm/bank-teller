@@ -46,4 +46,12 @@ public class BankAccountTest {
 		String check = underTest.getType();
 		Assert.assertEquals("savings", check);
 	}
+
+	@Test
+	public void shouldWithdraw10() {
+		BankAccount underTest = new BankAccount("", "", 20.0);
+		underTest.withdraw(10.0);
+		double check = underTest.getBalance();
+		Assert.assertEquals(10.0, check, 0.001);
+	}
 }

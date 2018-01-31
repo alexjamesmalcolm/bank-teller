@@ -24,8 +24,12 @@ public class BankAccount {
 		return balance;
 	}
 
-	public void deposit(double influx) {
-		balance += influx;
+	public void deposit(double amount) {
+		balance += amount;
+	}
+
+	public void withdraw(double amount) {
+		balance -= amount;
 	}
 
 }
