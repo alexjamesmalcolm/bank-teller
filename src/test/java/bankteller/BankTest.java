@@ -22,4 +22,14 @@ public class BankTest {
 		int check = underTest.getNumberOfAccounts();
 		Assert.assertEquals(2, check);
 	}
+	
+	@Test
+	public void shouldGetNumberOfAccounts3() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 0.0));
+		underTest.addAccount(new BankAccount("0002", "", 0.0));
+		underTest.addAccount(new BankAccount("0003", "", 0.0));
+		int check = underTest.getNumberOfAccounts();
+		Assert.assertEquals(3, check);
+	}
 }

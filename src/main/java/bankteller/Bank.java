@@ -16,7 +16,7 @@ public class Bank {
 	}
 
 	public int getNumberOfAccounts() {
-		return 2;
+		return accounts.size();
 	}
 
 }
