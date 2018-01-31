@@ -1,10 +1,11 @@
 package bankteller;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Bank {
-	//Map<String, Double> menu = new HashMap<String, Double>();
+	// Map<String, Double> menu = new HashMap<String, Double>();
 	Map<String, BankAccount> accounts = new HashMap<>();
 
 	public void addAccount(BankAccount account) {
@@ -21,6 +22,10 @@ public class Bank {
 
 	public double totalPortfolio() {
 		return 1120.0;
+	}
+
+	public Collection<BankAccount> getAccounts() {
+		return accounts.values();
 	}
 
 }

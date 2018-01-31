@@ -1,6 +1,9 @@
 package bankteller;
 
 import org.junit.Test;
+
+import java.util.Collection;
+
 import org.junit.Assert;
 
 public class BankTest {
@@ -32,9 +35,9 @@ public class BankTest {
 		int check = underTest.getNumberOfAccounts();
 		Assert.assertEquals(3, check);
 	}
-	
+
 	@Test
-	public void shouldGetPortfolioTotal() {
+	public void shouldGetPortfolioTotal1120() {
 		Bank underTest = new Bank();
 		underTest.addAccount(new BankAccount("0001", "", 100.0));
 		underTest.addAccount(new BankAccount("0002", "", 20.0));
@@ -44,5 +47,22 @@ public class BankTest {
 	}
 
 	// @Test
-	// public void shouldGetAccounts() {}
+	// public void shouldGetPortfolioTotal2260() {
+	// Bank underTest = new Bank();
+	// underTest.addAccount(new BankAccount("0001", "", 200.0));
+	// underTest.addAccount(new BankAccount("0002", "", 60.0));
+	// underTest.addAccount(new BankAccount("0003", "", 2000.0));
+	// double check = underTest.totalPortfolio();
+	// Assert.assertEquals(2260.0, check, 0.001);
+	// }
+
+	@Test
+	public void shouldGet3Accounts() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 100.0));
+		underTest.addAccount(new BankAccount("0002", "", 20.0));
+		underTest.addAccount(new BankAccount("0003", "", 1000.0));
+		Collection<BankAccount> accounts = underTest.getAccounts();
+		Assert.assertEquals(3, accounts.size());
+	}
 }
