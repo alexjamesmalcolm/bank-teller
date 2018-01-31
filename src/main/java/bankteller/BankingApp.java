@@ -13,6 +13,13 @@ public class BankingApp {
 		
 		System.out.println("Here are your accounts at our bank:");
 		myBank.displayAccounts();
+		
+		System.out.println("What would you like to do?");
+		System.out.println("Press 1 to deposit");
+		System.out.println("Press 2 to withdrawal");
+		System.out.println("Press 3 to check balance");
+		System.out.println("Press 4 to close an account");
+		System.out.println("Press 5 to exit");
 	}
 
 }

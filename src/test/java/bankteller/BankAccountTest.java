@@ -70,4 +70,12 @@ public class BankAccountTest {
 		String expected = "BankAccount {accountNum: 2222, type: Savings, balance: 2500.0}";
 		Assert.assertEquals(expected, check);
 	}
+	
+	@Test
+	public void shouldNotWithdrawNegative() {
+		BankAccount underTest = new BankAccount("","",20.0);
+		underTest.withdraw(-10.0);
+		double balance = underTest.getBalance();
+		Assert.assertEquals(20.0, balance, 0.001);
+	}
 }

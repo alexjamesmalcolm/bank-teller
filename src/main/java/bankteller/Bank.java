@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Bank {
-	// Map<String, Double> menu = new HashMap<String, Double>();
 	Map<String, BankAccount> accounts = new HashMap<>();
 
 	public void addAccount(BankAccount account) {
