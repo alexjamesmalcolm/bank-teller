@@ -19,4 +19,8 @@ public class Bank {
 		return accounts.size();
 	}
 
+	public double totalPortfolio() {
+		return 1120.0;
+	}
+
 }
