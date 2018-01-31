@@ -94,4 +94,12 @@ public class BankTest {
 		double balance = underTest.getAccount("0001").getBalance();
 		Assert.assertEquals(190.0, balance, 0.001);
 	}
+
+	@Test
+	public void shouldReturnBalance200() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 200.0));
+		double balance = underTest.getBalance("0001");
+		Assert.assertEquals(200.0, balance, 0.001);
+	}
 }
