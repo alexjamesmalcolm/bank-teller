@@ -3,6 +3,7 @@ package bankteller;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.DoubleStream;
 
 public class Bank {
 	// Map<String, Double> menu = new HashMap<String, Double>();
@@ -21,7 +22,7 @@ public class Bank {
 	}
 
 	public double totalPortfolio() {
-		return 1120.0;
+		return getAccounts().stream().mapToDouble((BankAccount account) -> account.getBalance()).sum();
 	}
 
 	public Collection<BankAccount> getAccounts() {

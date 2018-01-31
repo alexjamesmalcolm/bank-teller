@@ -46,16 +46,6 @@ public class BankTest {
 		Assert.assertEquals(1120.0, check, 0.001);
 	}
 
-	// @Test
-	// public void shouldGetPortfolioTotal2260() {
-	// Bank underTest = new Bank();
-	// underTest.addAccount(new BankAccount("0001", "", 200.0));
-	// underTest.addAccount(new BankAccount("0002", "", 60.0));
-	// underTest.addAccount(new BankAccount("0003", "", 2000.0));
-	// double check = underTest.totalPortfolio();
-	// Assert.assertEquals(2260.0, check, 0.001);
-	// }
-
 	@Test
 	public void shouldGet3Accounts() {
 		Bank underTest = new Bank();
@@ -64,5 +54,15 @@ public class BankTest {
 		underTest.addAccount(new BankAccount("0003", "", 1000.0));
 		Collection<BankAccount> accounts = underTest.getAccounts();
 		Assert.assertEquals(3, accounts.size());
+	}
+
+	@Test
+	public void shouldGetPortfolioTotal2260() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 200.0));
+		underTest.addAccount(new BankAccount("0002", "", 60.0));
+		underTest.addAccount(new BankAccount("0003", "", 2000.0));
+		double check = underTest.totalPortfolio();
+		Assert.assertEquals(2260.0, check, 0.001);
 	}
 }
