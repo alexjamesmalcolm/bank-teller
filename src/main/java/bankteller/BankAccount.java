@@ -17,7 +17,7 @@ public class BankAccount {
 	}
 
 	public String getType() {
-		return "checking";
+		return type;
 	}
 
 	public double getBalance() {
