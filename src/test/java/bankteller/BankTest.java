@@ -9,6 +9,17 @@ import org.junit.Assert;
 public class BankTest {
 
 	@Test
+	public void shouldCloseAccount() {
+		Bank underTest = new Bank();
+		underTest.addAccount(new BankAccount("0001", "", 200.0));
+		underTest.addAccount(new BankAccount("0002", "", 60.0));
+		underTest.addAccount(new BankAccount("0003", "", 2000.0));
+		underTest.closeAccount("0001");
+		int check = underTest.getNumOfAccounts();
+		Assert.assertEquals(2, check);
+	}
+
+	@Test
 	public void shouldGet3Accounts() {
 		Bank underTest = new Bank();
 		underTest.addAccount(new BankAccount("0001", "", 100.0));
@@ -65,15 +76,6 @@ public class BankTest {
 		double check = underTest.totalPortfolio();
 		Assert.assertEquals(2260.0, check, 0.001);
 	}
-
-	@Test
-	public void shouldCloseAccount() {
-		Bank underTest = new Bank();
-		underTest.addAccount(new BankAccount("0001", "", 200.0));
-		underTest.addAccount(new BankAccount("0002", "", 60.0));
-		underTest.addAccount(new BankAccount("0003", "", 2000.0));
-		underTest.closeAccount("0001");
-		int check = underTest.getNumOfAccounts();
-		Assert.assertEquals(2, check);
-	}
+	
+	
 }
