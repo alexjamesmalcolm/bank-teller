@@ -2,8 +2,14 @@ package bankteller;
 
 public class BankAccount {
 
-	public BankAccount(String string, String string2, double d) {
-		// TODO Auto-generated constructor stub
+	private String accountNum;
+	private String type;
+	private double balance;
+
+	public BankAccount(String accountNum, String type, double balance) {
+		this.accountNum = accountNum;
+		this.type = type;
+		this.balance = balance;
 	}
 
 	public String getAccountNum() {
@@ -11,13 +17,15 @@ public class BankAccount {
 	}
 
 	public String getType() {
-		// TODO Auto-generated method stub
 		return "checking";
 	}
 
 	public double getBalance() {
-		// TODO Auto-generated method stub
-		return 100.0;
+		return balance;
+	}
+
+	public void deposit(double influx) {
+		balance += influx;
 	}
 
 }

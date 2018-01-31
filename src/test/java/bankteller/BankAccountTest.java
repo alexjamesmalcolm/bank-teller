@@ -24,4 +24,12 @@ public class BankAccountTest {
 		double check = underTest.getBalance();
 		Assert.assertEquals(100.0, check, 0.001);
 	}
+	
+	@Test
+	public void shouldDeposit10() {
+		BankAccount underTest = new BankAccount("", "", 10.0);
+		underTest.deposit(10.0);
+		double check = underTest.getBalance();
+		Assert.assertEquals(20.0, check, 0.001);
+	}
 }
