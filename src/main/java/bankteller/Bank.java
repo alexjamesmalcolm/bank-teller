@@ -46,7 +46,7 @@ public class Bank {
 	}
 
 	public double getBalance(String string) {
-		return 200;
+		return accounts.get(string).getBalance();
 	}
 
 }
