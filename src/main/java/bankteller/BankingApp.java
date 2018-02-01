@@ -7,17 +7,13 @@ public class BankingApp {
 	public static void main(String[] args) {
 		Bank myBank = new Bank();
 
-		BankAccount account1 = new BankAccount("1111", "Checking", 500.0);
-		BankAccount account2 = new BankAccount("2222", "Savings", 2500.0);
-
-		myBank.addAccount(account1);
-		myBank.addAccount(account2);
+		myBank.addAccount(new BankAccount("1111", "Checking", 500.0));
+		myBank.addAccount(new BankAccount("2222", "Savings", 2500.0));
 
 		Scanner input = new Scanner(System.in);
 		while (true) {
 			System.out.println("Here are your accounts at our bank:");
 			myBank.displayAccounts();
-
 			displayChoices();
 			int choice = input.nextInt();
 			if (choice == 1) {
@@ -38,8 +34,7 @@ public class BankingApp {
 	}
 
 	private static void closeAccount(Bank bank, Scanner input) {
-		String accountNum = askAccount(bank, input);
-		bank.closeAccount(accountNum);
+		bank.closeAccount(askAccount(bank, input));
 	}
 
 	private static void deposit(Bank bank, Scanner input) {
@@ -56,19 +51,16 @@ public class BankingApp {
 
 	private static void askToDeposit(Bank myBank, Scanner input, String accountNum) {
 		System.out.println("Enter the amount to deposit:");
-		double amount = input.nextDouble();
-		myBank.deposit(accountNum, amount);
+		myBank.deposit(accountNum, input.nextDouble());
 	}
 
 	private static void askToWithdraw(Bank bank, Scanner input, String accountNum) {
 		System.out.println("Enter the amount to withdrawal:");
-		double amount = input.nextDouble();
-		bank.withdraw(accountNum, amount);
+		bank.withdraw(accountNum, input.nextDouble());
 	}
 
 	private static void displayAccountBalance(Bank bank, String accountNum) {
-		double balance = bank.getBalance(accountNum);
-		System.out.println("Your balance is: " + balance);
+		System.out.println("Your balance is: " + bank.getBalance(accountNum));
 	}
 
 	private static String askAccount(Bank bank, Scanner input) {

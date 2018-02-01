@@ -36,17 +36,16 @@ public class Bank {
 	}
 
 	public void deposit(String accountNum, double amount) {
-		BankAccount account = accounts.get(accountNum);
-		account.deposit(amount);
+		getAccount(accountNum).deposit(amount);
 	}
 
 	public void withdraw(String accountNum, double amount) {
-		BankAccount account = accounts.get(accountNum);
-		account.withdraw(amount);
+		getAccount(accountNum).withdraw(amount);
+		
 	}
 
-	public double getBalance(String string) {
-		return accounts.get(string).getBalance();
+	public double getBalance(String accountNum) {
+		return getAccount(accountNum).getBalance();
 	}
 
 }

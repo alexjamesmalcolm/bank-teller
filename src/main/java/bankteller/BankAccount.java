@@ -1,15 +1,22 @@
 package bankteller;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 public class BankAccount {
 
 	private String accountNum;
 	private String type;
-	private double balance;
+	private BigDecimal balance;
 
-	public BankAccount(String accountNum, String type, double balance) {
+	public BankAccount(String accountNum, String type, String balance) {
 		this.accountNum = accountNum;
 		this.type = type;
-		this.balance = balance;
+		this.balance = new BigDecimal(balance);
+	}
+
+	public BankAccount(String accountNum, String type, BigDecimal inputBalance) {
+		this.balance = inputBalance;
 	}
 
 	public String getAccountNum() {
@@ -20,19 +27,19 @@ public class BankAccount {
 		return type;
 	}
 
-	public double getBalance() {
+	public BigDecimal getBalance() {
 		return balance;
 	}
 
 	public void deposit(double amount) {
 		if (amount > 0) {
-			balance += amount;
+			balance = balance.add(new BigDecimal(amount));
 		}
 	}
 
-	public void withdraw(double amount) {
-		if (amount > 0) {
-			balance -= amount;
+	public void withdraw(String string) {
+		if (new BigDecimal(string).compareTo(BigDecimal.ZERO) == 1) {
+			balance = balance.subtract(new BigDecimal(string));
 		}
 	}
 
